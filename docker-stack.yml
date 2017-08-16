@@ -4,14 +4,14 @@ version: "3.1"
 
 services:
   s3-dmd:
-    image: vrancurel/zenko-memcached-module
+    image: hanuprateek/zenko-ipfs-module
     ports:
       - "9990"
       - "9991"
     networks:
       - backend
     depends_on:
-      - memcached
+      - ipfs
     environment:
       S3DATAPATH: /data
       S3METADATAPATH: /metadata
@@ -22,10 +22,12 @@ services:
         constraints:
           - node.labels.io.zenko.type == storage
 
-  memcached:
-    image: library/memcached
+  ipfs:
+    image: jbenet/go-ipfs
     ports:
-      - "11211:11211"
+      - "5001:5001"
+      - "4001:4001"
+      - "8080:8080"
     environment:
       EXTRA_OPTIONS: "-I 10m"
     networks:
