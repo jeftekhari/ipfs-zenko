@@ -1,10 +1,10 @@
 {
-  "name": "zenko-memcached-module",
+  "name": "zenko-ipfs-module",
   "engines": {
     "node": "6.9.5"
   },
   "version": "0.0.1",
-  "description": "Overrides default MD backend by memcached",
+  "description": "Overrides default MD backend with a ipfs backend",
   "main": "index.js",
   "scripts": {
     "ft_test": "mocha tests/functional",
@@ -12,17 +12,17 @@
     "test": "mocha tests/unit",
     "start": "node index.js"
   },
-  "repository": "vrancurel/zenko-memcached-module",
+  "repository": "jeftekhari/ipfs-zenko",
   "keywords": [
     "zk",
     "monitoring"
   ],
-  "author": "Vianney Rancurel",
+  "author": "Hanu Prateek Kunduru",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/zenko-memcached-module/issues"
+    "url": "https://github.com/jeftekhari/ipfs-zenko/issues"
   },
-  "homepage": "https://github.com/zenko-memcached-module#readme",
+  "homepage": "https://github.com/jeftekhari/ipfs-zenko#readme",
   "devDependencies": {
     "mocha": "",
     "eslint": "^2.4.0",
