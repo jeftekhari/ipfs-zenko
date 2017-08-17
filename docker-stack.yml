@@ -6,8 +6,8 @@ services:
   s3-dmd:
     image: hanuprateek/zenko-ipfs-module
     ports:
-      - "9990"
-      - "9991"
+      - "9990:9990"
+      - "9991:9991"
     networks:
       - backend
     depends_on:
@@ -48,7 +48,7 @@ services:
   s3-front:
     image: scality/s3server
     ports:
-      - "8000"
+      - "8000:8000"
     networks:
       - backend
       - frontend-dmz
@@ -73,7 +73,7 @@ services:
   cache:
     image: redis:alpine
     ports:
-      - "6379"
+      - "6379:6379"
     networks:
       - backend
 
