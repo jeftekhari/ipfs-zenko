@@ -12,7 +12,10 @@
     "test": "mocha tests/unit",
     "start": "node index.js"
   },
-  "repository": "jeftekhari/ipfs-zenko",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeftekhari/ipfs-zenko.git"
+  },
   "keywords": [
     "zk",
     "monitoring"
@@ -27,12 +30,14 @@
     "mocha": "",
     "eslint": "^2.4.0",
     "eslint-config-airbnb": "^6.0.0",
-    "eslint-config-scality": "scality/Guidelines",
+    "eslint-config-scality": "github:scality/Guidelines",
     "eslint-plugin-react": "4.2.3"
   },
   "dependencies": {
+    "arsenal": "github:scality/Arsenal",
+    "ipfs": "^0.25.1",
+    "ipfs-api": "^14.1.2",
     "memcached": "~2.2.2",
-    "arsenal": "scality/Arsenal",
-    "werelogs": "scality/werelogs"
+    "werelogs": "github:scality/werelogs"
   }
 }
