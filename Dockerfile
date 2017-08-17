@@ -1,7 +1,7 @@
 FROM node:6-slim
 MAINTAINER Salim Salaues <salimsalaues@gmail.com>
 MAINTAINER Joseph Eftekhari <jdeftekhari@gmail.com>
-MAINTAINER Hanu Prateek Kunduru </>
+MAINTAINER Hanu Prateek Kunduru <hanu.prateek@gmail.com>
 
 WORKDIR /usr/src/app
 
