@@ -24,6 +24,9 @@ services:
 
   ipfs:
     image: ipfs/go-ipfs
+    volumes:
+      - /tmp/ipfs_staging:/export
+      - /tmp/ipfs_data:/data/ipfs
     ports:
       - "5001:5001"
       - "4001:4001"
