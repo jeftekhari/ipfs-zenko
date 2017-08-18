@@ -34,7 +34,6 @@ const mdServer = new MetadataFileServer(
 var ipfs = ipfsAPI('localhost', '5001', {protocol: 'http'})
 // var ipfs = ipfsAPI('/ip4/127.0.0.1/tcp/5001')
 
-
 class IPFSService extends arsenal.network.rpc.BaseService {
     constructor(params) {
     super(params);
@@ -56,44 +55,44 @@ mdServer.initMetadataService = function ()
 
     dbService.registerAsyncAPI({
         put: (env, key, value, options, cb) => {
-            const dbName = env.subLevel.join(SUBLEVEL_SEP);
-            console.log('put',env,dbName,key,value,options);
-          //   memcached.get(dbName, (err, data) => {
-                // if (err) {
-                //     console.log(err);
-                //     let db = {};
-                //     db[key] = value;
-                //     memcached.add(dbName, JSON.stringify(db), MEMCACHED_LIFETIME, 
-                //           (err) => {
-                //               if (err) {
-                //               console.log(err);
-                //               cb(err);
-                //               } else {
-                //               cb(null);
-                //               }
-                //             });
-                // } else {
-                //     console.log(data);
-                //     let db = JSON.parse(data);
-                //     db[key] = value;
-                //     memcached.replace(dbName, JSON.stringify(db), MEMCACHED_LIFETIME, 
-                //               (err) => {
-                //               if (err) {
-                //                   console.log(err);
-                //                   cb(err);
-                //               } else {
-                //                   cb(null);
-                //               }
-                //               });
-                // }
-          //   });
+        const dbName = env.subLevel.join(SUBLEVEL_SEP);
+        console.log('put',env,dbName,key,value,options);
+/*      memcached.get(dbName, (err, data) => {
+        if (err) {
+            console.log(err);
+            let db = {};
+            db[key] = value;
+            memcached.add(dbName, JSON.stringify(db), MEMCACHED_LIFETIME, 
+                  (err) => {
+                      if (err) {
+                      console.log(err);
+                      cb(err);
+                      } else {
+                      cb(null);
+                      }
+                  });
+        } else {
+            console.log(data);
+            let db = JSON.parse(data);
+            db[key] = value;
+            memcached.replace(dbName, JSON.stringify(db), MEMCACHED_LIFETIME, 
+                      (err) => {
+                      if (err) {
+                          console.log(err);
+                          cb(err);
+                      } else {
+                          cb(null);
+                      }
+                      });
+        }
+        });*/
         },
         del: (env, key, options, cb) => {
         console.log('del',env,key,options);
         },
         get: (env, key, options, cb) => {
         console.log('get',key,options);
-/*        memcached.get(dbName, (err, data) => {
+/*      memcached.get(dbName, (err, data) => {
         if (err) {
             console.log(err);
         } else {

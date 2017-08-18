@@ -41,38 +41,6 @@ services:
       placement:
         constraints:
           - node.labels.io.zenko.type == storage
-  s3-data:
-    image: scality/s3server
-    ports:
-      - "9990"
-    networks:
-      - backend
-    environment:
-      S3DATAPATH: /data
-      LISTEN_ADDR: 0.0.0.0
-    volumes:
-      - "s3-data:/data:rw"
-    command: npm run start_dataserver
-    deploy:
-      placement:
-        constraints:
-          - node.labels.io.zenko.type == storage
-  s3-metadata:
-    image: scality/s3server
-    ports:
-      - "9991"
-    networks:
-      - backend
-    environment:
-      S3METADATAPATH: /metadata
-      LISTEN_ADDR: 0.0.0.0
-    volumes:
-      - 's3-metadata:/metadata:rw'
-    command: npm run start_mdserver
-    deploy:
-      placement:
-        constraints:
-          - node.labels.io.zenko.type == storage
   s3-front:
     image: scality/s3server
     ports:
@@ -81,8 +49,8 @@ services:
       - backend
       - frontend-dmz
     environment:
-      DATA_HOST: s3-data
-      METADATA_HOST: s3-metadata
+      DATA_HOST: s3-ipfs
+      METADATA_HOST: s3-ipfs
       REDIS_HOST: cache
       ENDPOINT: "${ENDPOINT:-zenko}"
     secrets:
@@ -90,8 +58,6 @@ services:
     command: npm run start_s3server
     depends_on:
       - s3-ipfs
-      - s3-data
-      - s3-metadata
       - cache
     deploy:
       mode: replicated
@@ -128,8 +94,6 @@ networks:
   frontend:
   frontend-dmz:
 volumes:
-  s3-data:
-  s3-metadata:
   s3-ipfs:
 secrets:
   s3-credentials:
