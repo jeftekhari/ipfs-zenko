@@ -1,0 +1,6 @@
+{
+  "bootstrap": [
+    "localhost:81"
+  ],
+  "path": "/proxy/arc/"
+}
