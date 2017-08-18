@@ -44,7 +44,7 @@ services:
   s3-front:
     image: scality/s3server
     ports:
-      - "8000"
+      - "8000:8000"
     networks:
       - backend
       - frontend-dmz
@@ -68,7 +68,7 @@ services:
   cache:
     image: redis:alpine
     ports:
-      - "6379"
+      - "6379:6379"
     networks:
       - backend
   lb:
