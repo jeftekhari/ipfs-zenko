@@ -20,4 +20,4 @@ VOLUME ["/usr/src/app/localData","/usr/src/app/localMetadata"]
 
 CMD [ "npm", "start" ]
 
-EXPOSE 8080
+EXPOSE 8000
