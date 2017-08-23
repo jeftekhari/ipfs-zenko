@@ -17,10 +17,6 @@ This meant replacing the data and metadata modules with one module that interfac
 
 Using the zenko framework and the ipfs module you can push data onto the local ipfs node which when pulled from an external gateway is shared in all the neighboring nodes and across the network. In our case, the metadata is stored in a json file and put back into the ipfs network and everytime there is an update, a new record is created and pushed onto the network.
 
-![alt text](https://github.com/jeftekhari/ipfs-zenko/blob/master/presentation/Screen%20Shot%202017-08-22%20at%206.40.23%20PM.png "Test")
-
-![alt text](https://github.com/jeftekhari/ipfs-zenko/blob/master/presentation/IPFSput.png "masterclass")
-
 ![diagram](https://github.com/jeftekhari/ipfs-zenko/blob/master/presentation/Diagram.png "Data Flow Diagram")
 
 ## Instructions
@@ -51,3 +47,6 @@ Then type:
  `aws s3 --endpoint http://localhost:8000 cp <intended_file.txt> s3://<custom_bucket_name> --region=us-east-1`
  
  Awesome! You've created a bucket, uploaded a file and peeked inside your bucket.
+ 
+ Here's the Docker image link, just in case.
+ https://hub.docker.com/r/hanuprateek/zenko-ipfs-module/
