@@ -16,3 +16,12 @@ When we started this project, we had never worked with the Zenko stack nor famil
 This meant replacing the data and metadata modules with one module that interfaces with IPFS. Fortunately, the framework was flexible enough to allow us to manage the data into IPFS services.
 
 Using the zenko framework and the ipfs module you can push data onto the local ipfs node which when pulled from an external gateway is shared in all the neighboring nodes and across the network. In our case, the metadata is stored in a json file and put back into the ipfs network and everytime there is an update, a new record is created and pushed onto the network.
+
+![alt text](https://github.com/jeftekhari/ipfs-zenko/blob/master/presentation/Screen%20Shot%202017-08-22%20at%206.40.23%20PM.png "Test")
+
+![alt text](https://github.com/jeftekhari/ipfs-zenko/blob/master/presentation/IPFSput.png "masterclass")
+
+![diagram](https://github.com/jeftekhari/ipfs-zenko/blob/master/presentation/Diagram.png "Data Flow Diagram")
+
+## Instructions
+
