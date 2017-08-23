@@ -3,7 +3,9 @@
 const ipfsAPI = require('ipfs-api');
 const arsenal = require('arsenal');
 const werelogs = require('werelogs');
-const errors = require('arsenal/errors');
+const errors = arsenal.errors;
+const VRP = arsenal.VersioningRequestProcessor;
+const WGM = arsenal.WriteGatheringManager;
 
 const SUBLEVEL_SEP = '::';
 
@@ -53,16 +55,22 @@ mdServer.initMetadataService = function() {
         put: (env, key, value, options, cb) => {
             const dbName = env.subLevel.join(SUBLEVEL_SEP);
             console.log('put',env,dbName,key,value,options);
+            vrp.put({ db: dbName, key, value, options },
+                env.requestLogger, cb);
         },
         del: (env, key, options, cb) => {
+            const dbName = env.subLevel.join(SUBLEVEL_SEP);
             console.log('del',env,key,options);
+            vrp.del({ db: dbName, key, options },
+                env.requestLogger, cb);
         },
         get: (env, key, options, cb) => {
+            const dbName = env.subLevel.join(SUBLEVEL_SEP);
             console.log('get',key,options);
+            vrp.get({ db: dbName, key, options },
+                env.requestLogger, cb);
         },
-        getDiskUsage: (env, cb) => {
-            console.log('getDiskUsage',env);
-        },
+        getDiskUsage: (env, cb) => diskusage.check(this.path, cb),
     });
 
     dbService.registerSyncAPI({
