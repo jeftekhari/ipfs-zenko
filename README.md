@@ -25,3 +25,29 @@ Using the zenko framework and the ipfs module you can push data onto the local i
 
 ## Instructions
 
+Clone the Repo:
+
+`git clone https://github.com/jeftekhari/ipfs-zenko.git`
+
+Then type:
+
+ `docker stack deploy -c docker-stack.yml zenko-ipfs-prod`
+ 
+ This will deploy the version of the Zenko stack that includes our IPFS service.
+ The IPFS daemon will initialize and your S3 server will start.
+ 
+ You can type: `docker service ls` to view active services.
+ 
+ Now it's time to make a bucket!
+ 
+ Type: `aws s3 --endpoint http://localhost:8000 mb s3://<custom_bucket_name> --region=us-east-1` to create a bucket.
+ It should return a message that confirms your creation.
+ 
+ You can check the contets of your bucket by changing the `mb` (make bucket) to `ls`.
+ EXAMPLE:
+ `aws s3 --endpoint http://localhost:8000 ls s3://<custom_bucket_name> --region=us-east-1`
+ 
+ To upload a file to your bucket, use the `cp` commmand with the intended file directly after.
+ `aws s3 --endpoint http://localhost:8000 cp <intended_file.txt> s3://<custom_bucket_name> --region=us-east-1`
+ 
+ Awesome! You've created a bucket, uploaded a file and peeked inside your bucket.
