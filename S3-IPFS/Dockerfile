@@ -1,5 +1,5 @@
 FROM node:6-slim
-MAINTAINER Giorgio Regni <gr@scality.com>
+MAINTAINER Hanu Prateek Kunduru <hanu.prateek@gmail.com>
 
 WORKDIR /usr/src/app
 
